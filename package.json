@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/voice-audio-services-section",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Service boundary for speech-bearing audio and operations specialized to human voice.",
   "repository": {
