@@ -1,5 +1,5 @@
 /** Pure, medium-independent speech script admission and sound-score projection. */
-import { canonicalizeJson } from "@red-cup-engineering/json-services-section/canonical-json";
+import { canonicalizeJson } from "@red-cup-engineering/json-engineering-services-section/canonical-json";
 import { admitSoundScore, contentDigest } from "./audioplay-model.mjs";
 import { admitSourceAnchor, SPEECH_SCRIPT_JSON_ENVELOPE } from "./source-anchor.mjs";
 

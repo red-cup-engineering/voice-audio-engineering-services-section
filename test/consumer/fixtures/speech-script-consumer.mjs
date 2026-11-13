@@ -6,11 +6,11 @@ import { readFile, realpath } from "node:fs/promises";
 import { sep } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { canonicalJson } from "@red-cup-engineering/json-services-section/canonical-json";
-import { resolveJsonPointer } from "@red-cup-engineering/json-services-section/resolve-json-pointer";
-import { admitSpeechScript, scoreFromSpeechScript } from "@red-cup-engineering/voice-audio-services-section/speech-script";
-import { admitAudioplayCast, admitSoundScore, contentDigest, createAudioplayProductionManifest } from "@red-cup-engineering/voice-audio-services-section/audioplay-model";
-import schema from "@red-cup-engineering/voice-audio-services-section/speech-script-schema" with { type: "json" };
+import { canonicalJson } from "@red-cup-engineering/json-engineering-services-section/canonical-json";
+import { resolveJsonPointer } from "@red-cup-engineering/json-engineering-services-section/resolve-json-pointer";
+import { admitSpeechScript, scoreFromSpeechScript } from "@red-cup-engineering/voice-audio-engineering-services-section/speech-script";
+import { admitAudioplayCast, admitSoundScore, contentDigest, createAudioplayProductionManifest } from "@red-cup-engineering/voice-audio-engineering-services-section/audioplay-model";
+import schema from "@red-cup-engineering/voice-audio-engineering-services-section/speech-script-schema" with { type: "json" };
 
 const installation = JSON.parse(await readFile(new URL("./installation.json", import.meta.url), "utf8"));
 const sourceDocument = {

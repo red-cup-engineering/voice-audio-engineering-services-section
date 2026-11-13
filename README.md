@@ -19,7 +19,7 @@ SoundScore grammar and cast admission remain the common downstream interfaces.
 
 ```js
 import { admitSpeechScript, scoreFromSpeechScript }
-  from '@red-cup-engineering/voice-audio-services-section/speech-script';
+  from '@red-cup-engineering/voice-audio-engineering-services-section/speech-script';
 
 const script = {
   kind: 'speech-script/v1',
@@ -83,7 +83,7 @@ no higher than -60 dBFS. These values are data interpreted by the publishing
 renderer; this package does not invoke ffmpeg or a speech provider.
 
 The effectful interpreter is
-`@red-cup-engineering/computer-systems-publishing-engineering-services-section/audiobook-production`.
+`@red-cup-engineering/computer-content-publication-systems-engineering-services-section/audiobook-production`.
 It groups stable sentence primitives at the provider boundary, renders score
 cues, caches synthesis requests by content address, masters chapter files,
 muxes the M4B and runs the injected transcription proof. Automated proof is
@@ -111,7 +111,7 @@ no higher than -60 dBFS. These values are data interpreted by the publishing
 renderer; this package does not invoke ffmpeg or a speech provider.
 
 The effectful interpreter is
-`@red-cup-engineering/computer-systems-publishing-engineering-services-section/audiobook-production`.
+`@red-cup-engineering/computer-content-publication-systems-engineering-services-section/audiobook-production`.
 It groups stable sentence primitives at the provider boundary, renders score
 cues, caches synthesis requests by content address, masters chapter files,
 muxes the M4B and runs the injected transcription proof. Automated proof is

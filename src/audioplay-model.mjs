@@ -5,8 +5,8 @@
  * not additions to SEN's core calculus; the code layer compiles them through
  * the injective JSON-to-SEN bridge.
  */
-import { canonicalJson, canonicalizeJson } from "@red-cup-engineering/json-services-section/canonical-json";
-import { makeNiUri, isNiUri } from "@red-cup-engineering/uri-services-section/ni-uri";
+import { canonicalJson, canonicalizeJson } from "@red-cup-engineering/json-engineering-services-section/canonical-json";
+import { makeNiUri, isNiUri } from "@red-cup-engineering/uri-engineering-services-section/ni-uri";
 import { admitSourceAnchor } from "./source-anchor.mjs";
 
 const object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);

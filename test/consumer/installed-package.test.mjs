@@ -10,7 +10,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const sourceRoot = fileURLToPath(new URL("../../", import.meta.url));
-const packageName = "@red-cup-engineering/voice-audio-services-section";
+const packageName = "@red-cup-engineering/voice-audio-engineering-services-section";
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
 const writeJson = (path, value) => writeFile(path, JSON.stringify(value, null, 2) + "\n");
 

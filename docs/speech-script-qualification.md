@@ -1,6 +1,6 @@
 # Speech script qualification
 
-Source candidate: `@red-cup-engineering/voice-audio-services-section@0.2.0`,
+Source candidate: `@red-cup-engineering/voice-audio-engineering-services-section@0.2.0`,
 derived from original commit `79bd38b1fc47b2f570121e880fb06808414020e8`.
 This is local source and installed-artifact evidence, not registry issuance,
 runtime deployment or audience receiving.
