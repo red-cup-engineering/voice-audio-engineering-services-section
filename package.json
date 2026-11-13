@@ -35,8 +35,7 @@
     "LICENSE*",
     "src",
     "specifications",
-    "test",
-    "docs/speech-script-qualification.md"
+    "test"
   ],
   "license": "MIT",
   "funding": {

@@ -64,9 +64,7 @@ Run `npm ci --ignore-scripts --no-audit --no-fund`, `npm run check` and
 `npm test` for the complete named native suite. Run `npm run test:consumer`
 with the same populated writable npm cache for isolated installed-archive
 receiving. The exact JSON `0.4.2-dev.270` pin deliberately receives an
-already-merged accessor-admission repair missing from stable 0.4.1; its
-original source/artifact comparison and the prerelease limitation are recorded
-in [the qualification record](docs/speech-script-qualification.md).
+already-merged accessor-admission repair missing from stable 0.4.1.
 
 ## Audiobook edition records
 
