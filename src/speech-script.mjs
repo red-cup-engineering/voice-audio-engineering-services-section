@@ -1,7 +1,7 @@
 /** Pure, medium-independent speech script admission and sound-score projection. */
 import { canonicalizeJson } from "@red-cup-engineering/json-engine/canonical-json";
-import { admitSoundScore, contentDigest } from "./audioplay-model.mjs";
-import { admitSourceAnchor, SPEECH_SCRIPT_JSON_ENVELOPE } from "./source-anchor.mjs";
+import { validateSoundScore, contentDigest } from "./audioplay-model.mjs";
+import { validateSourceAnchor, SPEECH_SCRIPT_JSON_ENVELOPE } from "./source-anchor.mjs";
 
 function refuse(path, message) {
   const error = new TypeError(`${path}: ${message}`);
@@ -20,7 +20,7 @@ function nonblank(value, path) {
 }
 
 /** Structural admission is not editorial, listening or broadcast acceptance. */
-export function admitSpeechScript(candidate) {
+export function validateSpeechScript(candidate) {
   const script = canonicalizeJson(candidate, SPEECH_SCRIPT_JSON_ENVELOPE).value;
   exactRecord(script, ["kind", "id", "title", "language", "source", "segments"], "");
   if (script.kind !== "speech-script/v1") refuse("/kind", "must be speech-script/v1");
@@ -36,7 +36,7 @@ export function admitSpeechScript(candidate) {
     ids.add(segment.id);
     if (typeof segment.pauseAfterSeconds !== "number" || !Number.isFinite(segment.pauseAfterSeconds) || segment.pauseAfterSeconds < 0) refuse(`${path}/pauseAfterSeconds`, "must be finite nonnegative seconds");
     try {
-      admitSourceAnchor({ ...script.source, pointer: segment.sourcePointer });
+      validateSourceAnchor({ ...script.source, pointer: segment.sourcePointer });
     } catch (error) {
       if (error.code !== "INVALID_SOURCE_ANCHOR") throw error;
       const field = error.path === "/pointer" ? `${path}/sourcePointer` : `/source${error.path}`;
@@ -48,7 +48,7 @@ export function admitSpeechScript(candidate) {
 
 /** Preserve explicit speech and pauses using the original SoundScore grammar. */
 export function scoreFromSpeechScript(candidate, { seed = 561 } = {}) {
-  const { script, digest } = admitSpeechScript(candidate);
+  const { script, digest } = validateSpeechScript(candidate);
   const expressions = script.segments.flatMap((segment) => [
     ["narrate", {
       id: segment.id,
@@ -58,7 +58,7 @@ export function scoreFromSpeechScript(candidate, { seed = 561 } = {}) {
     }],
     ["silence", { durationSeconds: segment.pauseAfterSeconds }],
   ]);
-  return admitSoundScore(["score", {
+  return validateSoundScore(["score", {
     type: "SoundScore", version: 1,
     id: script.id, title: script.title, language: script.language, seed,
     source: { kind: "speech-script", digest, ...script.source },
