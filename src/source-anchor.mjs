@@ -51,7 +51,7 @@ function refuse(path, message) {
 }
 
 /** Admit coordinates, not source truth: no resource is fetched or resolved. */
-export function validateSourceAnchor(candidate) {
+export function admitSourceAnchor(candidate) {
   const anchor = canonicalizeJson(candidate, SPEECH_SCRIPT_JSON_ENVELOPE).value;
   if (anchor === null || typeof anchor !== "object" || Array.isArray(anchor)) refuse("", "must be a source anchor record");
   const fields = ["resource", "revision", "pointer"];
