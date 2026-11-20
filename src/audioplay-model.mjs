@@ -1,3 +1,4 @@
+import { isRecord } from "@red-cup-engineering/signcell/values";
 /**
  * Pure data admission for authored and derived sound scores.
  *
@@ -9,7 +10,7 @@ import { canonicalJson, canonicalizeJson } from "@red-cup-engineering/json-engin
 import { makeNiUri, isNiUri } from "@red-cup-engineering/uri-engineering-services-section/ni-uri";
 import { admitSourceAnchor } from "./source-anchor.mjs";
 
-const object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+
 const finite = (value) => typeof value === "number" && Number.isFinite(value);
 const nonnegative = (value) => finite(value) && value >= 0;
 const utf8 = new TextEncoder();
@@ -24,7 +25,7 @@ function fail(path, message) {
 }
 
 function fields(value, path) {
-  if (!object(value)) fail(path, "must be a record");
+  if (!isRecord(value)) fail(path, "must be a record");
   return value;
 }
 
@@ -102,7 +103,7 @@ function voice(value, path) {
 }
 
 export function admitAudioplayCast(candidate, admittedScore) {
-  if (!object(candidate) || candidate.type !== "AudioplayCast" || candidate.version !== 1 || !Array.isArray(candidate.members)) fail("/cast", "cast must be AudioplayCast version 1 with members");
+  if (!isRecord(candidate) || candidate.type !== "AudioplayCast" || candidate.version !== 1 || !Array.isArray(candidate.members)) fail("/cast", "cast must be AudioplayCast version 1 with members");
   const members = candidate.members.map((member, index) => {
     const row = fields(member, `/cast/members/${index}`);
     if (typeof row.speakerId !== "string" || !row.speakerId) fail(`/cast/members/${index}/speakerId`, "must be nonempty");
