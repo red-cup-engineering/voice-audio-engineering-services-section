@@ -1,7 +1,7 @@
+import { niUriFromDigest, sha256 } from "@red-cup-engineering/semiotic-content-address-system";
 /** Pure audiobook edition records and mastering policy. Effects live in systems publishing. */
-import { createHash } from "node:crypto";
 
-const ni = (bytes) => `ni:///sha-256;${createHash("sha256").update(bytes).digest("base64url")}`;
+const ni = (bytes) => niUriFromDigest(sha256(bytes));
 const semanticId = (value) => ni(Buffer.from(JSON.stringify(value)));
 
 export const audiobookMasteringSpecification = Object.freeze({

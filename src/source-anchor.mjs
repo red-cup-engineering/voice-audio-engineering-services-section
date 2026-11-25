@@ -1,7 +1,7 @@
 /** Resource-based source coordinates shared by speech scripts and sound scores. */
 import { canonicalizeJson, JSON_RESOURCE_ENVELOPE } from "@red-cup-engineering/json-engine/canonical-json";
 import { parseJsonPointer } from "@red-cup-engineering/json-engine/resolve-json-pointer";
-import { isNiUri } from "@red-cup-engineering/uri-engineering-services-section/ni-uri";
+import { isNiUri } from "@red-cup-engineering/semiotic-content-address-system";
 import { isIP } from "node:net";
 
 export const SPEECH_SCRIPT_JSON_ENVELOPE = Object.freeze({

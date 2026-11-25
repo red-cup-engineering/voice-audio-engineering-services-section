@@ -7,7 +7,7 @@ import { isRecord } from "@red-cup-engineering/signcell/values";
  * the injective JSON-to-SEN bridge.
  */
 import { canonicalJson, canonicalizeJson } from "@red-cup-engineering/json-engine/canonical-json";
-import { makeNiUri, isNiUri } from "@red-cup-engineering/uri-engineering-services-section/ni-uri";
+import { makeNiUri, isNiUri } from "@red-cup-engineering/semiotic-content-address-system";
 import { admitSourceAnchor } from "./source-anchor.mjs";
 
 
